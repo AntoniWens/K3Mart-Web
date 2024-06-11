@@ -38,26 +38,7 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-<script>
-  let useHtml = false;
-
-  window.addEventListener('load', function(ev) {
-  _flutter.loader.load({
-    serviceWorker: {
-      serviceWorkerVersion: 1,
-    },
-    onEntrypointLoaded: function(engineInitializer) {
-      let config = {
-        renderer: useHtml ? "html" : "canvaskit",
-      };
-      engineInitializer.initializeEngine(config).then(function(appRunner) {
-        appRunner.runApp();
-      });
-    }
-  });
-});
-</script>
-  <script src="flutter_bootstrap.js" async></script>
+<script src="flutter_bootstrap.js" async></script>
 </body>
 
 </html>
