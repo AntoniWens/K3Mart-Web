@@ -18,11 +18,17 @@
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-  <script type="application/javascript" src="https://antoniwens.github.io/K3Mart-Web/assets/packages/flutter_inappwebview_web/assets/web/web_support.js" defer></script>
+  <script type="application/javascript" src="/assets/packages/flutter_inappwebview_web/assets/web/web_support.js" defer></script>
+  <link rel="preload" href="main.dart.js" as="script">
+  <base href="/">
+
+
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="theme-color" content="#EF59A1">
+
+
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -35,8 +41,26 @@
 
   <title>K3mart</title>
   <link rel="manifest" href="manifest.json">
+  <script>
+    const serviceWorkerVersion = "1228511208";
+  </script>
 </head>
 <body>
+<script defer>
+  window.addEventListener('load', function (ev) {
+    // Download main.dart.js
+    _flutter.loader.loadEntrypoint({
+      serviceWorker: {
+        serviceWorkerVersion: serviceWorkerVersion,
+      },
+      onEntrypointLoaded: function (engineInitializer) {
+        engineInitializer.initializeEngine().then(function (appRunner) {
+          appRunner.runApp();
+        });
+      }
+    });
+  });
+</script>
 <script src="flutter_bootstrap.js" async></script>
 </body>
 
